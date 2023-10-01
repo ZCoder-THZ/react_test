@@ -43,24 +43,28 @@ function App() {
 
   return (
     <>
-      <h3>{text}</h3>
-      <input type="text" value={text} onChange={() => {
-        setText(event.target.value)
-      }}
-        onKeyPress={(e) => {
-          if (e.key === 'Enter') {
-            handleTodo()
-          }
+      <div className="container w-[400px] mx-auto bg-gray-400 p-4 rounded-md mt-40">
+        <h3 className='text-green-300 bg-black'>{text}</h3>
+        <input className=' b-3' type="text" value={text} onChange={() => {
+          setText(event.target.value)
         }}
-      />
 
-      <ul>
-        {
-          todos.map((todo, i) => <li key={i}>{todo.task}</li>)
-        }
-      </ul>
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              handleTodo()
+            }
+          }}
+        />
+        <button className='bg-blue-400 text-white px-2 rounded-md' onClick={handleTodo}>setTask</button>
 
-      <button onClick={handleTodo}>setTask</button>
+
+        <ul>
+          {
+            todos.map((todo, i) => <li key={i}>{todo.task}</li>)
+          }
+        </ul>
+
+      </div>
     </>
   )
 }
