@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment {
         // SERVER_CREDENTIALS=credentials('server-credentials')
-        
+        NEW_VERSION = '1.2.3'
     }
     stages{
         stage("build"){
@@ -11,6 +11,7 @@ pipeline{
                     echo "========building========"
                     sh 'echo $USERNAME'
                     sh 'echo $PASSWORD'
+                    sh 'echo $NEW_VERSION'
                 }
             }
          
